@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 sealed class RoutersConstants {
+  static const String splash = '/';
   static const String home = '/home';
 }
 
