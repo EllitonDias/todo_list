@@ -70,6 +70,7 @@ class HomeController extends GetxController {
   Future<void> delete(TaskModel taskModel) async {
     try {
       await _tasksService.delete(taskModel);
+      refreshPage();
     } catch (e) {
       Exception(e);
     }
@@ -79,17 +80,17 @@ class HomeController extends GetxController {
   void validatorDelete(TaskModel taskModel) {
     Get.dialog(
       TodoListAlertDialog(
-        title: 'Excluir Card',
+        title: 'Excluir Tarefa',
         content:
-            'Tem certeza de que deseja deletar este card? Esta ação não pode ser desfeita.',
+            'Tem certeza de que deseja deletar esta tarefa? Esta ação não pode ser desfeita.',
         onPressed: () {
           delete(taskModel);
           Get.back();
-          refreshPage();
         },
       ),
     );
   }
+
 
   //filter tasks by today, tomorrow and week
   Future<void> findTaks({required TaskFilterEnum filter}) async {
@@ -171,7 +172,7 @@ class HomeController extends GetxController {
     await loadTotalTasks();
   }
 
-  //copy infos 
+  //copy infos
   void copyInfos(BuildContext context, String description) {
     Clipboard.setData(
       ClipboardData(

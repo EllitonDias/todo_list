@@ -38,9 +38,8 @@ class HomeWeekFilter extends GetView<HomeController> {
                   locale: 'pt_BR',
                   initialSelectedDate:
                       controller.initialDateOfWeek.value ?? DateTime.now(),
-                  selectionColor: ColorsConstants.blueLight,
+                  selectionColor: ColorsConstants.blue,
                   selectedTextColor: Colors.white,
-                  
                   daysCount: 7,
                   monthTextStyle: const TextStyle(
                     fontSize: 8,
@@ -54,6 +53,9 @@ class HomeWeekFilter extends GetView<HomeController> {
                   onDateChange: (selectedDate) =>
                       controller.filterByDay(selectedDate),
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
             ],
           ),

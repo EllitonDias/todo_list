@@ -17,11 +17,11 @@ class TodoListAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: ColorsConstants.blue,
+      backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
-        side: const BorderSide(
-          color: Colors.white,
+        side: BorderSide(
+          color: ColorsConstants.blue,
           width: 2,
         ),
       ),
@@ -52,7 +52,6 @@ class TodoListAlertDialog extends StatelessWidget {
         child: Text(
           title,
           style: const TextStyle(
-            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -60,7 +59,6 @@ class TodoListAlertDialog extends StatelessWidget {
       content: Text(
         content,
         style: const TextStyle(
-          color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
         textAlign: TextAlign.center,

@@ -74,7 +74,7 @@ class Task extends GetView<HomeController> {
                 ),
               ),
               IconButton(
-                onPressed: () => controller.delete(task),
+                onPressed: () => controller.validatorDelete(task),
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.red,

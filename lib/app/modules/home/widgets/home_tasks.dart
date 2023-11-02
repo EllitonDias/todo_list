@@ -16,7 +16,7 @@ class HomeTasks extends GetView<HomeController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            controller.description,
+            'TAREFAS ${controller.description}',
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
