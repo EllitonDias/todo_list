@@ -38,7 +38,7 @@ class TasksController extends GetxController with MessagesMixin {
     description.dispose();
   }
 
-  //validator
+  //validator form
   void validator() {
     final formValid = formKey.currentState?.validate() ?? false;
     if (formValid && _selectedDate.value != null) {

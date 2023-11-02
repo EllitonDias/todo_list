@@ -17,3 +17,32 @@ Este é um aplicativo de lista de tarefas desenvolvido com Flutter, GetX e SQLit
 - Flutter 3.13.4-0.0.pre.3 • channel stable •
 - Dart SDK version: 3.1.1 (stable)
 
+## Capturas de Tela
+
+Aqui estão algumas capturas de tela do aplicativo para lhe dar uma ideia de como ele se parece:
+
+1. Tela principal com lista de tarefas:
+![Tela principal](assets/screenshots/homeList.png)
+
+2. Filtragem por Semana:
+![Filtragem por Semana](assets/screenshots/homeWeek.png)
+
+3. Filtragem por Hoje:
+![Filtragem por Hoje](assets/screenshots/homeToday.png)
+
+4. Filtragem por Amanhã:
+![Filtragem por Amanhã](assets/screenshots/homeTomorrow.png)
+
+5. Tarefas Concluídas Visíveis:
+![Tarefas Concluídas Visíveis](assets/screenshots/taskFineshed.png)
+
+6. Adicionar Tarefa:
+![Adicionar Tarefa](assets/screenshots/taskCreate.png)
+
+7. Excluir Tarefa:
+![Excluir Tarefa](assets/screenshots/deleteTask.png)
+
+8. Copiar Texto da Tarefa:
+![Copiar Texto da Tarefa](assets/screenshots/copyTask.png)
+
+
