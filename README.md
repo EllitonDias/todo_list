@@ -1,16 +1,19 @@
-# todo_list
+# Todo_List
 
-A new Flutter project.
+Este é um aplicativo de lista de tarefas desenvolvido com Flutter, GetX e SQLite, que proporciona uma maneira simples e eficaz de gerenciar suas tarefas diárias. 
 
-## Getting Started
+## Funcionalidades
 
-This project is a starting point for a Flutter application.
+- **Filtragem por Semana:** Veja todas as tarefas planejadas para a semana atual.
+- **Filtragem por Hoje:** Visualize as tarefas que você planejou para o dia atual.
+- **Filtragem por Amanhã:** Planeje suas tarefas para o próximo dia.
+- **Exibição/Ocultação de Tarefas Concluídas:** Escolha se deseja ver ou ocultar as tarefas que você já concluiu.
+- **Adicionar Tarefa:** Adicione novas tarefas à sua lista.
+- **Excluir Tarefa:** Remova tarefas que não são mais necessárias.
+- **Copiar Textos das Tarefas:** Copie o texto das suas tarefas para a área de transferência para uso posterior.
 
-A few resources to get you started if this is your first Flutter project:
+## Versão
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter 3.13.4-0.0.pre.3 • channel stable •
+- Dart SDK version: 3.1.1 (stable)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
