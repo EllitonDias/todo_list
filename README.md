@@ -2,6 +2,8 @@
 
 Este é um aplicativo de lista de tarefas desenvolvido com Flutter, GetX e SQLite, que proporciona uma maneira simples e eficaz de gerenciar suas tarefas diárias. 
 
+<a href="https://drive.google.com/file/d/12cIy96d7FRdguU_DmmnNIp_35ax7H3_8/view?usp=drive_link">Link para o APK</a>
+
 ## Funcionalidades
 
 - **Filtragem por Semana:** Veja todas as tarefas planejadas para a semana atual.
