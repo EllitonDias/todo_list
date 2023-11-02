@@ -9,8 +9,6 @@ import '../../services/tasks/tasks_service.dart';
 class HomeController extends GetxController {
   final TasksService _tasksService;
 
-  bool showFinishingTasks = false;
-
   HomeController({required TasksService tasksService})
       : _tasksService = tasksService;
 
@@ -20,6 +18,7 @@ class HomeController extends GetxController {
   final weekTotalTasks = Rxn<TotalTaskModel>();
   final initialDateOfWeek = Rxn<DateTime>();
   final selectedDay = Rxn<DateTime>();
+  final showFinishingTasks = false.obs;
 
   //obs
   final filterSelected = TaskFilterEnum.today.obs;
@@ -57,10 +56,9 @@ class HomeController extends GetxController {
     );
   }
 
-  //filter tasks
+  //filter tasks by today, tomorrow and week
   Future<void> findTaks({required TaskFilterEnum filter}) async {
     filterSelected.value = filter;
-
     List<TaskModel> tasks;
     switch (filter) {
       case TaskFilterEnum.today:
@@ -89,12 +87,13 @@ class HomeController extends GetxController {
       selectedDay.value = null;
     }
 
-    if (!showFinishingTasks) {
+    if (!showFinishingTasks.value) {
       filteredTasks.value =
           filteredTasks.where((task) => !task.finished).toList();
     }
   }
 
+  //filter by day
   void filterByDay(DateTime date) {
     selectedDay.value = date;
     filteredTasks.value = allTasks.where((task) {
@@ -102,6 +101,16 @@ class HomeController extends GetxController {
     }).toList();
   }
 
+  //check or uncheck task
+  Future<void> checkOrUncheckTask(TaskModel taskModel) async {
+    final taskUpdate = taskModel.copyWith(
+      finished: !taskModel.finished,
+    );
+    await _tasksService.checkOrUncheckTask(taskUpdate);
+    refreshPage();
+  }
+
+  //percent finish tasks
   double getPercentFinish(TotalTaskModel? totalTaskModel) {
     final total = totalTaskModel?.totalTasks ?? 0.0;
     final totalFinish = totalTaskModel?.totalTasksFinish ?? 0.1;
@@ -112,5 +121,17 @@ class HomeController extends GetxController {
 
     final percent = (totalFinish * 100) / total;
     return percent / 100;
+  }
+
+  //shoe or hide finishing tasks
+  void showOrHideFinishingTasks() {
+    showFinishingTasks.value = !showFinishingTasks.value;
+    refreshPage();
+  }
+
+  //refresh page after update
+  Future<void> refreshPage() async {
+    await findTaks(filter: filterSelected.value);
+    await loadTotalTasks();
   }
 }

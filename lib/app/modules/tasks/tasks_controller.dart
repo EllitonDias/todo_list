@@ -57,7 +57,7 @@ class TasksController extends GetxController with MessagesMixin {
   //create task with selected date
   Future<void> save(String description) async {
     try {
-      if (_selectedDate.value == null) {
+      if (_selectedDate.value != null) {
         await _tasksService.save(_selectedDate.value!, description);
         _message(
           MessageModel.success(
