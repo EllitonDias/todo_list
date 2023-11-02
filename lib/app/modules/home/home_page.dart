@@ -14,6 +14,7 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(TextConstants.title),
+        leading: Image.asset(ImageConstants.logo),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,

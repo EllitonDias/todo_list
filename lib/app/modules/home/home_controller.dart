@@ -1,7 +1,10 @@
 import 'dart:ffi';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../core/ui/constants.dart';
 import '../../models/task_filter_enum.dart';
 import '../../models/task_model.dart';
 import '../../models/total_task_model.dart';
@@ -140,5 +143,29 @@ class HomeController extends GetxController {
   Future<void> refreshPage() async {
     await findTaks(filter: filterSelected.value);
     await loadTotalTasks();
+  }
+
+  //copy infos 
+  void copyInfos(BuildContext context, String description) {
+    Clipboard.setData(
+      ClipboardData(
+        text: description,
+      ),
+    ).then((_) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: ColorsConstants.blue,
+          elevation: 4,
+          clipBehavior: Clip.antiAlias,
+          content: const Text(
+            'Copiado para a área de transferência!',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    });
   }
 }
