@@ -4,6 +4,7 @@ import '../../core/ui/constants.dart';
 import './home_controller.dart';
 import 'widgets/home_filters.dart';
 import 'widgets/home_tasks.dart';
+import 'widgets/home_week_filter.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo List'),
+        title: const Text(TextConstants.title),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
@@ -22,14 +23,21 @@ class HomePage extends GetView<HomeController> {
             width: 2.0,
           ),
         ),
-        onPressed: () => Get.toNamed(RoutersConstants.tasks),
+        onPressed: () {
+          Get.toNamed(RoutersConstants.tasks);
+          controller.refreshPage();
+        },
         child: const Icon(Icons.add),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          const HomeFilters(),
-          HomeTasks(tasks: controller.allTasks),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 40,
+        ),
+        children: const [
+          HomeFilters(),
+          HomeWeekFilter(),
+          HomeTasks(),
         ],
       ),
     );

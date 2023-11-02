@@ -20,11 +20,9 @@ class HomeFilters extends GetView<HomeController> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
         Obx(() {
           return SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 10),
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             child: Row(

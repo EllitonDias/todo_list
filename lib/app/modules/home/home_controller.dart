@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:get/get.dart';
 
 import '../../models/task_filter_enum.dart';
@@ -8,27 +10,31 @@ import '../../services/tasks/tasks_service.dart';
 
 class HomeController extends GetxController {
   final TasksService _tasksService;
-
-  HomeController({required TasksService tasksService})
+  final Bool? result;
+  HomeController({required TasksService tasksService, this.result})
       : _tasksService = tasksService;
 
   //Rxn
-  final todayTotalTasks = Rxn<TotalTaskModel>();
-  final tomorrowTotalTasks = Rxn<TotalTaskModel>();
-  final weekTotalTasks = Rxn<TotalTaskModel>();
+  var todayTotalTasks = Rxn<TotalTaskModel>();
+  var tomorrowTotalTasks = Rxn<TotalTaskModel>();
+  var weekTotalTasks = Rxn<TotalTaskModel>();
   final initialDateOfWeek = Rxn<DateTime>();
   final selectedDay = Rxn<DateTime>();
-  final showFinishingTasks = false.obs;
 
   //obs
   final filterSelected = TaskFilterEnum.today.obs;
   final filteredTasks = <TaskModel>[].obs;
   final allTasks = <TaskModel>[].obs;
+  final showFinishingTasks = false.obs;
+
+  //get
+  String get description => filterSelected.value.description;
 
   @override
-  void onReady() {
-    super.onReady();
+  void onInit() {
+    super.onInit();
     loadTotalTasks();
+    findTaks(filter: filterSelected.value);
   }
 
   //load total tasks for today, tomorrow and week
@@ -91,6 +97,7 @@ class HomeController extends GetxController {
       filteredTasks.value =
           filteredTasks.where((task) => !task.finished).toList();
     }
+    refreshPage();
   }
 
   //filter by day

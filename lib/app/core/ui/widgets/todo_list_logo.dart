@@ -5,7 +5,10 @@ import '../constants.dart';
 
 class TodoListLogo extends StatelessWidget {
   final String label;
-  const TodoListLogo({super.key, this.label = 'Todo List'});
+  const TodoListLogo({
+    super.key,
+    this.label = TextConstants.title,
+  });
 
   @override
   Widget build(BuildContext context) {

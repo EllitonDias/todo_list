@@ -51,7 +51,7 @@ class TodoCardFilter extends GetView<HomeController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                '${totalTaskModel?.total ?? 0} Tasks',
+                '${totalTaskModel?.total ?? 0} Tarefas',
                 style: TextStyle(
                   fontSize: 10,
                   color: selected ? Colors.white : Colors.grey,

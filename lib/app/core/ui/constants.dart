@@ -11,7 +11,7 @@ sealed class ImageConstants {
 }
 
 sealed class TextConstants {
-  static const String title = 'Tarefas';
+  static const String title = 'TAREFAS';
 }
 
 sealed class ColorsConstants {

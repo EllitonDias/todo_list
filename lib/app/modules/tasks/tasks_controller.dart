@@ -41,13 +41,13 @@ class TasksController extends GetxController with MessagesMixin {
   //validator
   void validator() {
     final formValid = formKey.currentState?.validate() ?? false;
-    if (formValid) {
+    if (formValid && _selectedDate.value != null) {
       save(description.text);
       Get.back();
     } else {
       _message(
-        MessageModel.error(
-          title: 'Erro',
+        MessageModel.info(
+          title: 'Atenção',
           message: 'Data da tarefa não selecionada',
         ),
       );

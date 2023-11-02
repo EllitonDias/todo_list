@@ -43,6 +43,7 @@ dependencies:
   intl: ^0.18.1
   flutter_localizations:
     sdk: flutter
+  date_picker_timeline: ^1.2.5
 
 
 dev_dependencies:

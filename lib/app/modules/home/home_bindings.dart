@@ -7,6 +7,7 @@ class HomeBindings implements Bindings {
     Get.put(
       HomeController(
         tasksService: Get.find(),
+        result: Get.arguments,
       ),
     );
   }
