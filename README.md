@@ -21,28 +21,36 @@ Este é um aplicativo de lista de tarefas desenvolvido com Flutter, GetX e SQLit
 
 Aqui estão algumas capturas de tela do aplicativo para lhe dar uma ideia de como ele se parece:
 
-Tela principal
+**Tela principal**
+
 <img src="assets/screenshots/homeList.png" alt="Tela principal" width="200"/>
 
-Filtragem por Semana
+**Filtragem por Semana**
+
 <img src="assets/screenshots/homeWeek.png" alt="Filtragem por Semana" width="200"/>
 
-Filtragem por Hoje
+**Filtragem por Hoje**
+
 <img src="assets/screenshots/homeToday.png" alt="Filtragem por Hoje" width="200"/>
 
-Filtragem por Amanhã
+**Filtragem por Amanhã** 
+
 <img src="assets/screenshots/homeTomorrow.png" alt="Filtragem por Amanhã" width="200"/>
 
-Tarefas concluidas Visíveis
+**Tarefas concluidas Visíveis**
+
 <img src="assets/screenshots/taskFineshed.png" alt="Tarefas Concluídas Visíveis" width="200"/>
 
-Adicionar Tarefa
+**Adicionar Tarefa**
+
 <img src="assets/screenshots/taskCreate.png" alt="Adicionar Tarefa" width="200"/>
 
-Excluir Tarefa
+**Excluir Tarefa**
+
 <img src="assets/screenshots/deleteTask.png" alt="Excluir Tarefa" width="200"/>
 
-Copiar texto da Tarefa
+**Copiar texto da Tarefa**
+
 <img src="assets/screenshots/copyTask.png" alt="Copiar Texto da Tarefa" width="200"/>
  
 
