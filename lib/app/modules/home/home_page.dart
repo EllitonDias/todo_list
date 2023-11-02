@@ -18,7 +18,10 @@ class HomePage extends GetView<HomeController> {
         leading: Image.asset(ImageConstants.logo),
         actions: [
           PopupMenuButton(
-            icon: const Icon(TodoListIcons.filter),
+            icon: const Icon(
+              TodoListIcons.filter,
+              color: Colors.white,
+            ),
             onSelected: (value) => controller.showOrHideFinishingTasks(),
             itemBuilder: (_) => [
               PopupMenuItem<bool>(

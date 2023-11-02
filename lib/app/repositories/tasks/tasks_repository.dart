@@ -8,5 +8,4 @@ abstract interface class TasksRepository {
   );
   Future<void> checkOrUncheckTask(TaskModel taskModel);
   Future<void> delete(TaskModel taskModel);
-  Future<void> deleteAll();
 }

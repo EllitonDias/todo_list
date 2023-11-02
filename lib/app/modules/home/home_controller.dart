@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../core/ui/constants.dart';
+import '../../core/ui/widgets/todo_list_alert_dialog.dart';
 import '../../models/task_filter_enum.dart';
 import '../../models/task_model.dart';
 import '../../models/total_task_model.dart';
@@ -62,6 +63,31 @@ class HomeController extends GetxController {
     weekTotalTasks.value = TotalTaskModel(
       totalTasks: weekTasks.tasks.length,
       totalTasksFinish: weekTasks.tasks.where((task) => task.finished).length,
+    );
+  }
+
+  //delete
+  Future<void> delete(TaskModel taskModel) async {
+    try {
+      await _tasksService.delete(taskModel);
+    } catch (e) {
+      Exception(e);
+    }
+  }
+
+  //valiador delete card
+  void validatorDelete(TaskModel taskModel) {
+    Get.dialog(
+      TodoListAlertDialog(
+        title: 'Excluir Card',
+        content:
+            'Tem certeza de que deseja deletar este card? Esta ação não pode ser desfeita.',
+        onPressed: () {
+          delete(taskModel);
+          Get.back();
+          refreshPage();
+        },
+      ),
     );
   }
 

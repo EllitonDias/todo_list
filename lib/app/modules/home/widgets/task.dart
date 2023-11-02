@@ -23,7 +23,7 @@ class Task extends GetView<HomeController> {
         color: Colors.white,
         border: Border.all(
           color: Colors.grey,
-          width: 2, 
+          width: 2,
         ),
       ),
       constraints: const BoxConstraints(
@@ -34,7 +34,8 @@ class Task extends GetView<HomeController> {
         children: [
           Text(
             task.description.toUpperCase(),
-            style: const TextStyle(
+            style: TextStyle(
+              decoration: task.finished ? TextDecoration.lineThrough : null,
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
@@ -64,7 +65,7 @@ class Task extends GetView<HomeController> {
               IconButton(
                 onPressed: () {
                   final infos =
-                      'Tarefa: ${task.description}\n Data: ${dateFormat.format(task.dateTime)}';
+                      'Tarefa: ${task.description.toUpperCase()}\n Data: ${dateFormat.format(task.dateTime)}';
                   controller.copyInfos(context, infos);
                 },
                 icon: Icon(
@@ -73,7 +74,7 @@ class Task extends GetView<HomeController> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () => controller.delete(task),
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.red,
