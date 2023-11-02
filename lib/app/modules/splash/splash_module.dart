@@ -1,4 +1,4 @@
-import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:get/get.dart';
 
 import '../../core/modules/module.dart';
 import '../../core/ui/constants.dart';
@@ -12,6 +12,7 @@ class SplashModule implements Module {
       name: RoutersConstants.splash,
       page: () => const SplashPage(),
       binding: SplashBindings(),
+      transition: Transition.fadeIn,
     ),
   ];
 }

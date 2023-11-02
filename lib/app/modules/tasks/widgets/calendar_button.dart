@@ -32,9 +32,9 @@ class CalendarButton extends GetView<TasksController> {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.grey,
+            color: ColorsConstants.blueLight,
           ),
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

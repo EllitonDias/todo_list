@@ -10,7 +10,7 @@ class TasksRepositoryImpl implements TasksRepository {
   }) : _sqliteConnectionFactory = sqliteConnectionFactory;
 
   @override
-  Future<void> create(DateTime dateTime, String description) async {
+  Future<void> save(DateTime dateTime, String description) async {
     final conn = await _sqliteConnectionFactory.openConnection();
 
     await conn.insert('todo', {
@@ -19,6 +19,24 @@ class TasksRepositoryImpl implements TasksRepository {
       'dateTime': dateTime.toIso8601String(),
       'finished': 0,
     });
+  }
+
+  @override
+  Future<List<TaskModel>> findByPeriod(DateTime start, DateTime end) async {
+    final startFilter = DateTime(start.year, start.month, start.day, 0, 0, 0);
+    final endFilter = DateTime(end.year, end.month, end.day, 0, 0, 0);
+
+    final conn = await _sqliteConnectionFactory.openConnection();
+    final result = await conn.rawQuery('''
+      select * 
+      from todo 
+      where dateTime between ? and ? 
+      order by dateTime
+    ''', [
+      startFilter.toIso8601String(),
+      endFilter.toIso8601String(),
+    ]);
+    return result.map((task) => TaskModel.fromMap(task)).toList();
   }
 
   @override
@@ -39,13 +57,8 @@ class TasksRepositoryImpl implements TasksRepository {
   }
 
   @override
-  Future<List<TaskModel>> findAll() async {
+  Future<void> deleteAll() async {
     final conn = await _sqliteConnectionFactory.openConnection();
-    final result = await conn.rawQuery(''' 
-      select * 
-      from todo 
-      order by data_hora
-    ''');
-    return result.map((task) => TaskModel.fromMap(task)).toList();
+    await conn.rawDelete('delete from todo');
   }
 }

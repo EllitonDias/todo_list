@@ -2,71 +2,41 @@ import 'package:flutter/material.dart';
 
 class TodoListField extends StatelessWidget {
   final String label;
-  final IconButton? suffixIconButton;
-  final bool obscureText;
-  final ValueNotifier<bool> obscureTextVN;
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
   final FocusNode? focusNode;
 
-  TodoListField({
-    Key? key,
+  const TodoListField({
+    super.key,
     required this.label,
-    this.suffixIconButton,
-    this.obscureText = false,
     this.controller,
     this.validator,
     this.focusNode,
-  })  : assert(
-          obscureText == true ? suffixIconButton == null : true,
-          'ObscureText não pode ser enviado em conjunto com o suffixIconButton',
-        ),
-        obscureTextVN = ValueNotifier(obscureText),
-        super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<bool>(
-      valueListenable: obscureTextVN,
-      builder: (_, obscureTextValue, child) {
-        return TextFormField(
-          controller: controller,
-          validator: validator,
-          focusNode: focusNode,
-          decoration: InputDecoration(
-            labelText: label,
-            labelStyle: const TextStyle(
-              fontSize: 15,
-              color: Colors.black,
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(
-                color: Colors.red,
-              ),
-            ),
-            isDense: true,
-            suffixIcon: suffixIconButton ??
-                (obscureText == true
-                    ? IconButton(
-                        onPressed: () {
-                          obscureTextVN.value = !obscureTextValue;
-                        },
-                        icon: Icon(
-                          !obscureTextValue
-                              ? Icons.remove_red_eye
-                              : Icons.remove_red_eye_outlined,
-                          size: 15,
-                        ),
-                      )
-                    : null),
+    return TextFormField(
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      controller: controller,
+      validator: validator,
+      focusNode: focusNode,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(
+          color: Colors.grey,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.red,
           ),
-          obscureText: obscureTextValue,
-        );
-      },
+        ),
+        isDense: true,
+      ),
     );
   }
 }

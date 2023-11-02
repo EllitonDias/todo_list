@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../models/message_model.dart';
@@ -13,10 +13,10 @@ mixin MessagesMixin on GetxController {
             model.title,
             model.message,
             backgroundColor: model.type.color(),
+            colorText: Colors.white,
           );
         }
       },
     );
   }
-  
 }

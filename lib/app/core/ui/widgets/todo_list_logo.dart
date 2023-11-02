@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../constants.dart';
 
 class TodoListLogo extends StatelessWidget {
-  const TodoListLogo({Key? key}) : super(key: key);
+  final String label;
+  const TodoListLogo({super.key, this.label = 'Todo List'});
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +14,14 @@ class TodoListLogo extends StatelessWidget {
       children: [
         Image.asset(
           ImageConstants.logo,
-          height: 200,
+          height: context.heightTransformer(reducedBy: 80),
         ),
-        const Text(
-          'Tarefas',
+        Text(
+          label.toUpperCase(),
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );
