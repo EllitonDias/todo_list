@@ -21,28 +21,21 @@ Este é um aplicativo de lista de tarefas desenvolvido com Flutter, GetX e SQLit
 
 Aqui estão algumas capturas de tela do aplicativo para lhe dar uma ideia de como ele se parece:
 
-1. Tela principal com lista de tarefas:
-![Tela principal](assets/screenshots/homeList.png)
+<img src="assets/screenshots/homeList.png" alt="Tela principal" width="200"/>
 
-2. Filtragem por Semana:
-![Filtragem por Semana](assets/screenshots/homeWeek.png)
+<img src="assets/screenshots/homeWeek.png" alt="Filtragem por Semana" width="200"/>
 
-3. Filtragem por Hoje:
-![Filtragem por Hoje](assets/screenshots/homeToday.png)
+<img src="assets/screenshots/homeToday.png" alt="Filtragem por Hoje" width="200"/>
 
-4. Filtragem por Amanhã:
-![Filtragem por Amanhã](assets/screenshots/homeTomorrow.png)
+<img src="assets/screenshots/homeTomorrow.png" alt="Filtragem por Amanhã" width="200"/>
 
-5. Tarefas Concluídas Visíveis:
-![Tarefas Concluídas Visíveis](assets/screenshots/taskFineshed.png)
+<img src="assets/screenshots/taskFineshed.png" alt="Tarefas Concluídas Visíveis" width="200"/>
 
-6. Adicionar Tarefa:
-![Adicionar Tarefa](assets/screenshots/taskCreate.png)
+<img src="assets/screenshots/taskCreate.png" alt="Adicionar Tarefa" width="200"/>
 
-7. Excluir Tarefa:
-![Excluir Tarefa](assets/screenshots/deleteTask.png)
+<img src="assets/screenshots/deleteTask.png" alt="Excluir Tarefa" width="200"/>
 
-8. Copiar Texto da Tarefa:
-![Copiar Texto da Tarefa](assets/screenshots/copyTask.png)
+<img src="assets/screenshots/copyTask.png" alt="Copiar Texto da Tarefa" width="200"/>
+ 
 
 
