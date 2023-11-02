@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import '../../core/ui/constants.dart';
+import '../../core/ui/todo_list_icons.dart';
 import './home_controller.dart';
 import 'widgets/home_filters.dart';
 import 'widgets/home_tasks.dart';
@@ -15,6 +16,20 @@ class HomePage extends GetView<HomeController> {
       appBar: AppBar(
         title: const Text(TextConstants.title),
         leading: Image.asset(ImageConstants.logo),
+        actions: [
+          PopupMenuButton(
+            icon: const Icon(TodoListIcons.filter),
+            onSelected: (value) => controller.showOrHideFinishingTasks(),
+            itemBuilder: (_) => [
+              PopupMenuItem<bool>(
+                value: true,
+                child: Text(
+                  '${controller.showFinishingTasks.value ? 'ESCONDER' : 'MOSTRAR'} TAREFAS REALIZADAS',
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
